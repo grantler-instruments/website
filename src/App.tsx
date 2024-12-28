@@ -3,6 +3,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 
 const theme = createTheme({
+  palette: {
+    mode: "dark",
+  },
   typography: {
     fontFamily: "Rajdhani, Roboto, Arial, sans-serif", // Set your custom font here
   },
