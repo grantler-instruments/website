@@ -1,19 +1,11 @@
 import "./App.css";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
-
-const theme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-  typography: {
-    fontFamily: "Rajdhani, Roboto, Arial, sans-serif", // Set your custom font here
-  },
-});
+import { darkTheme } from "./muiTheme";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline /> {/* Optional: ensures consistent baseline CSS */}
       <div>coming soon...</div>
     </ThemeProvider>
