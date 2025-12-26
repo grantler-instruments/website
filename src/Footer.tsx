@@ -6,8 +6,8 @@ import { NavLink } from "react-router";
 
 const Footer = () => {
   const menuItems = [
-    { label: "Home", link: "/" },
-    { label: "About", link: "/about" },
+    { label: "/", link: "/" },
+    { label: "Things", link: "/things" },
     { label: "Contact", link: "/contact" },
   ];
   const setMenuOpen = useAppStore((state) => state.setMenuOpen);

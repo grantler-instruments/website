@@ -4,9 +4,13 @@ import { Box, CssBaseline } from "@mui/material";
 import Header from "./Header";
 import theme from "./muiTheme";
 import GlobalStyles from "./GlobalStyles";
-import Logo from "./Logo";
 import Footer from "./Footer";
-import { HashRouter } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
+import NotFound from "./components/NotFound";
+import Home from "./components/Home";
+import Things from "./components/Things";
+import Contact from "./components/Contact";
+import WIPBanner from "./components/WorkInProgress";
 
 function App() {
   return (
@@ -15,11 +19,11 @@ function App() {
       <GlobalStyles />
       <Box
         width={"100vw"}
-        minHeight={"100vh"}
+        minHeight={"100dvh"}
         display={"flex"}
         flexDirection={"column"}
       >
-        <HashRouter>
+        <BrowserRouter>
           <Header />
           <Box
             flex={1}
@@ -31,10 +35,16 @@ function App() {
             alignItems={"center"}
             justifyContent={"center"}
           >
-            <Logo height={200} />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/things" element={<Things />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </Box>
           <Footer />
-        </HashRouter>
+        </BrowserRouter>
+        <WIPBanner />
       </Box>
     </ThemeProvider>
   );
