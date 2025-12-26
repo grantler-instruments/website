@@ -1,17 +1,24 @@
 import { Box, Typography } from "@mui/material";
-import Deemex from "./things/Deemex";
-import Enomik from "./things/Enomik";
-import B8C from "./things/B8C";
-import Turntangilism from "./things/Turntangilism";
+import { useNavigate } from "react-router";
 
 const Things = () => {
-  return <Box>
-    <Typography variant="h1">Things</Typography>
-    <Enomik />
-    <Turntangilism />
-    <B8C />
-    <Deemex />
-  </Box>;
+    const navigate = useNavigate();
+  const things = [
+    { name: "Enomik 3000", destination: "/things/enomik" },
+    { name: "Turntangilism 3000", destination: "/things/turntangilism" },
+    { name: "Baby 8 Cubes", destination: "/things/b8c" },
+    { name: "Deemex", destination: "/things/deemex" },
+  ];
+  return (
+    <Box>
+      <Typography variant="h1" color="primary">Things</Typography>
+      {things.map(({ name, destination }) => (
+        <Box key={name} sx={{cursor: 'pointer'}} onClick={() => navigate(destination)}>
+          <Typography variant="h2">{name}</Typography>
+        </Box>
+      ))}
+    </Box>
+  );
 };
 
 export default Things;

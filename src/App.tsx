@@ -11,6 +11,7 @@ import Home from "./components/Home";
 import Things from "./components/Things";
 import Contact from "./components/Contact";
 import WIPBanner from "./components/WorkInProgress";
+import Thing from "./components/Thing";
 
 function App() {
   return (
@@ -37,7 +38,11 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/things" element={<Things />} />
+              <Route path="/things">
+                <Route index element={<Things/>} />
+                <Route path=":id" element={<Thing />} />
+              </Route>
+
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
