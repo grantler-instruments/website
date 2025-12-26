@@ -6,15 +6,17 @@ const GlobalStyles = () => (
       "@font-face": [
         {
           fontFamily: "Rajdhani",
-          src: "url('/fonts/Rajdhani-Regular.ttf') format('truetype')",
+          src: "url('/fonts/Rajdhani/Rajdhani-Regular.ttf') format('truetype')",
           fontWeight: 400,
           fontStyle: "normal",
+          fontDisplay: "swap",
         },
         {
           fontFamily: "Rajdhani",
-          src: "url('/fonts/Rajdhani-Bold.ttf') format('truetype')",
+          src: "url('/fonts/Rajdhani/Rajdhani-Bold.ttf') format('truetype')",
           fontWeight: 700,
           fontStyle: "normal",
+          fontDisplay: "swap",
         },
       ],
       body: {
