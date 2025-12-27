@@ -6,7 +6,7 @@ export default function WIPBanner() {
       sx={{
         position: 'fixed',
         bottom: 0,
-        left: 0,
+        right: 0,            // changed from left
         width: '200px',
         height: '200px',
         overflow: 'hidden',
@@ -18,13 +18,13 @@ export default function WIPBanner() {
         sx={{
           position: 'absolute',
           bottom: '50px',
-          left: '-50px',
+          right: '-50px',     // mirror horizontal offset
           width: '250px',
-          backgroundColor: 'primary.main', // Orange color
+          backgroundColor: 'primary.main',
           color: 'white',
           textAlign: 'center',
           padding: '8px 0',
-          transform: 'rotate(45deg)',
+          transform: 'rotate(-45deg)', // reverse rotation
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
           pointerEvents: 'auto',
         }}

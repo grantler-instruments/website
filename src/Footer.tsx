@@ -7,6 +7,7 @@ import { NavLink } from "react-router";
 const Footer = () => {
   const menuItems = [
     { label: "/", link: "/" },
+    { label: "About", link: "/about" },
     { label: "Things", link: "/things" },
     { label: "Contact", link: "/contact" },
   ];
@@ -28,6 +29,7 @@ const Footer = () => {
                   key={item.label}
                   component={NavLink}
                   to={item.link}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
                 </ListItemButton>

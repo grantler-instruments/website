@@ -12,6 +12,7 @@ import Things from "./components/Things";
 import Contact from "./components/Contact";
 import WIPBanner from "./components/WorkInProgress";
 import Thing from "./components/Thing";
+import About from "./components/About";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
               <Route path="/things">
                 <Route index element={<Things/>} />
                 <Route path=":id" element={<Thing />} />

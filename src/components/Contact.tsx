@@ -1,7 +1,11 @@
-import { Box } from "@mui/material";
+import Page from "./Page";
 
 const Contact = () => {
-  return <Box>Contact</Box>;
+  return (
+    <Page title="Contact">
+        test
+    </Page>
+  );
 };
 
 export default Contact;

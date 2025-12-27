@@ -1,10 +1,18 @@
 
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import ReactPlayer from 'react-player'
+
 
 const Turntangilism = () => {
   return (
     <Box>
-      <Typography variant="h2">Turntangilism 3000</Typography>
+        <p>
+            Turntangilism 3000 is a postdigital extension kit for traditional turntable setups. 
+            It adds digital sampling and sequencing capabilities to vinyl performances, allowing for a seamless blend of analog and digital techniques.
+            While using digital technology, Turntangilism 3000 is designed to preserve the tactile and expressive qualities of vinyl DJing.
+        </p>
+        <ReactPlayer src='https://www.youtube.com/watch?v=1JE4SavnOqo' />
+
     </Box>
   );
 };
