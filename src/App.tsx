@@ -5,7 +5,7 @@ import Header from "./Header";
 import theme from "./muiTheme";
 import GlobalStyles from "./GlobalStyles";
 import Footer from "./Footer";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 import NotFound from "./components/NotFound";
 import Home from "./components/Home";
 import Things from "./components/Things";
@@ -25,7 +25,7 @@ function App() {
         display={"flex"}
         flexDirection={"column"}
       >
-        <BrowserRouter>
+        <HashRouter>
           <Header />
           <Box
             flex={1}
@@ -50,7 +50,7 @@ function App() {
             </Routes>
           </Box>
           <Footer />
-        </BrowserRouter>
+        </HashRouter>
         <WIPBanner />
       </Box>
     </ThemeProvider>

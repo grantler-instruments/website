@@ -32,6 +32,11 @@ const Things = () => {
       destination: "/things/deemex",
       description: "dmx interface with midi to dmx and enttec emulation mode",
     },
+    {
+        name: "BYODMCSE",
+        destination: "/things/byodmcse",
+        description: "build your own device multi channel sound experience",
+    }
   ];
 
   const [hoveredThing, setHoveredThing] = useState<string | null>(null);
