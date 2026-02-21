@@ -33,6 +33,11 @@ const Things = () => {
       description: "dmx interface with midi to dmx and enttec emulation mode",
     },
     {
+      name: "esrever",
+      destination: "/things/esrever",
+      description: "audio plugin that simply reverses the audio signal",
+    },
+    {
         name: "BYODMCSE",
         destination: "/things/byodmcse",
         description: "build your own device multi channel sound experience",

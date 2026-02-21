@@ -7,6 +7,7 @@ import Deemex from "./things/Deemex";
 import BackButton from "./BackButton";
 import EspNowMidi from "./things/EspNowMidi";
 import BYODMCSE from "./things/BYODMCSE";
+import Esrever from "./things/Esrever";
 
 const Thing = () => {
   const { id } = useParams();
@@ -31,6 +32,9 @@ const Thing = () => {
     case "byodmcse":
       title = "BYODMCSE - Bring Your Own Device Multi-Channel Sound Experience";
       break;
+    case "esrever":
+      title = "esrever";
+      break;
     default:
       title = "Unknown Thing";
   }
@@ -54,6 +58,7 @@ const Thing = () => {
         {id === "deemex" && <Deemex />}
         {id === "b8c" && <B8C />}
         {id === "byodmcse" && <BYODMCSE />}
+        {id === "esrever" && <Esrever />}
       </Box>
     </Box>
   );
