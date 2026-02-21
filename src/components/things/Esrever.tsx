@@ -6,12 +6,14 @@ const Esrever = () => {
       <Box>
         <p>
           Esrever is an audio plugin that simply reverses the audio signal—
-          nothing more, nothing less.
+          nothing more, nothing less. It can be synced to the audio clock or run
+          in free mode. It is a very quick and dirty plugin, literally. It
+          creates (un)wanted click sounds at the end of the playback window.
         </p>
-        <p>It can be synced to the audio clock or run in free mode.</p>
         <p>
-          It is a very quick and dirty plugin, literally. It creates (un)wanted click
-          sounds at the end of the playback window.
+          esrever is open source and available on GitHub. It is written in C++
+          and uses the JUCE framework. It is available for Windows, macOS and
+          Linux.
         </p>
       </Box>
       <Box display={"flex"} justifyContent="flex-end" my={2}>
