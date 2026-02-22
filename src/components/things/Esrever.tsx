@@ -1,19 +1,23 @@
 import { Box, Button } from "@mui/material";
+import ReactPlayer from "react-player";
+import esreverDemo from "../../assets/esrever_demo.mp3";
 
 const Esrever = () => {
   return (
     <Box>
       <Box>
-        <p>
+        <ReactPlayer src={esreverDemo} controls width="100%" height="54px" />
+        <p style={{ marginTop: 16 }}>
           Esrever is an audio plugin that simply reverses the audio signal—
           nothing more, nothing less. It can be synced to the audio clock or run
           in free mode. It is a very quick and dirty plugin, literally. It
-          creates (un)wanted click sounds at the end of the playback window.
+          creates (un)wanted click sounds at the end of the playback window—
+          how noticeable they are depends on the window fade settings. The
+          playback can be pitched by +/- 3 octaves.
         </p>
         <p>
-          esrever is open source and available on GitHub. It is written in C++
-          and uses the JUCE framework. It is available for Windows, macOS and
-          Linux.
+          Esrever is open source on GitHub, written in C++ with JUCE, and
+          available for Windows, macOS, and Linux.
         </p>
       </Box>
       <Box display={"flex"} justifyContent="flex-end" my={2}>
