@@ -43,15 +43,24 @@ const Thing = () => {
     <Box
       display="flex"
       flexDirection={"column"}
-      gap={2}
       maxHeight={"75dvh"}
-      overflow={"auto"}
+      width={"100%"}
+      minWidth={0}
+      p={2}
     >
-      <Box display={"flex"} gap={2}>
-        <Typography variant="h2">{title}</Typography>
-        <BackButton></BackButton>
+      <Box
+        display={"flex"}
+        gap={2}
+        minWidth={0}
+        alignItems="flex-start"
+        flexShrink={0}
+      >
+        <Typography variant="h2" sx={{ minWidth: 0, flex: 1, overflowWrap: "break-word" }}>
+          {title}
+        </Typography>
+        <BackButton />
       </Box>
-      <Box>
+      <Box sx={{ flex: 1, minHeight: 0, overflow: "auto", mt: 2 }}>
         {id === "esp-now-midi" && <EspNowMidi />}
         {id === "enomik" && <Enomik />}
         {id === "turntangilism" && <Turntangilism />}

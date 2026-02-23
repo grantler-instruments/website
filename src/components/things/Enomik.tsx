@@ -1,9 +1,15 @@
-
 import { Box, Button, List, ListItem } from "@mui/material";
+import enomikDongleClient from "../../assets/things/enomik/enomik_dongle_client.jpg";
 
 const Enomik = () => {
   return (
     <Box>
+      <Box
+        component="img"
+        src={enomikDongleClient}
+        alt="Enomik 3000 dongle and client boards"
+        sx={{ maxWidth: "100%", height: "auto", display: "block", mb: 2 }}
+      />
       <p>
         Enomik 3000 (ESP-NOW MIDI Kit) is a no-code toolkit for creating custom MIDI devices. 
         It leverages the ESP-NOW protocol to enable wireless MIDI communication between devices, eliminating the need for traditional cables. 

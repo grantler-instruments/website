@@ -18,8 +18,8 @@ const BackButton = () => {
   };
 
   return (
-    <Box position={"relative"}>
-      <IconButton onClick={handleClose} sx={{ position: "absolute", right: -32, top: -8 }}>
+    <Box position={"relative"} flexShrink={0} width={48} height={48}>
+      <IconButton onClick={handleClose} sx={{ position: "absolute", right: 0, top: -8 }}>
         <Close sx={{ fontSize: "32px" }} />
       </IconButton>
     </Box>

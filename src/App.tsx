@@ -29,6 +29,7 @@ function App() {
           <Header />
           <Box
             flex={1}
+            width={"100%"}
             maxWidth={"lg"}
             mx={"auto"}
             display={"flex"}
@@ -36,6 +37,7 @@ function App() {
             gap={4}
             alignItems={"center"}
             justifyContent={"center"}
+            minWidth={0}
           >
             <Routes>
               <Route path="/" element={<Home />} />

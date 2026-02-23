@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import Page from "./Page";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 
 const Things = () => {
   const navigate = useNavigate();
@@ -45,33 +45,81 @@ const Things = () => {
   ];
 
   const [hoveredThing, setHoveredThing] = useState<string | null>(null);
+  const [focusedIndex, setFocusedIndex] = useState(-1);
+  const itemRefs = useRef<(HTMLElement | null)[]>([]);
+
+  const goTo = useCallback(
+    (index: number) => {
+      const i = (index + things.length) % things.length;
+      setFocusedIndex(i);
+      itemRefs.current[i]?.focus();
+    },
+    [things.length]
+  );
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent, index: number) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+        e.preventDefault();
+        goTo(index + 1);
+        return;
+      }
+      if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+        e.preventDefault();
+        goTo(index - 1);
+        return;
+      }
+      if (e.key === "Home") {
+        e.preventDefault();
+        goTo(0);
+        return;
+      }
+      if (e.key === "End") {
+        e.preventDefault();
+        goTo(things.length - 1);
+        return;
+      }
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        navigate(things[index].destination);
+      }
+    },
+    [goTo, navigate, things]
+  );
+
   return (
     <Page title="Things">
-      {things.map(({ name, destination, description }) => (
-        <Box
-          display="flex"
-          gap={2}
-          key={name}
-          sx={{ cursor: "pointer" }}
-          onClick={() => navigate(destination)}
-          onMouseEnter={() => {
-            setHoveredThing(name);
-          }}
-          onMouseLeave={() => {
-            setHoveredThing(null);
-          }}
-        >
-          <Typography variant="h2" color={hoveredThing === name ? "primary" : "textSecondary"}>
-            {name}
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{ opacity: hoveredThing === name ? 1 : 0.01 }}
+      <Box component="ul" role="list" sx={{ listStyle: "none", p: 0, m: 0 }}>
+        {things.map(({ name, destination, description }, index) => (
+          <Box
+            ref={(el) => {
+              itemRefs.current[index] = el as HTMLElement | null;
+            }}
+            component="li"
+            role="button"
+            tabIndex={focusedIndex === index || (focusedIndex === -1 && index === 0) ? 0 : -1}
+            display="flex"
+            gap={2}
+            key={name}
+            sx={{ cursor: "pointer", outline: "none" }}
+            onClick={() => navigate(destination)}
+            onKeyDown={(e) => handleKeyDown(e, index)}
+            onFocus={() => setFocusedIndex(index)}
+            onMouseEnter={() => setHoveredThing(name)}
+            onMouseLeave={() => setHoveredThing(null)}
           >
-            {description}
-          </Typography>
-        </Box>
-      ))}
+            <Typography variant="h2" color={hoveredThing === name || focusedIndex === index ? "primary" : "textSecondary"}>
+              {name}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ opacity: hoveredThing === name || focusedIndex === index ? 1 : 0.01 }}
+            >
+              {description}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
     </Page>
   );
 };
