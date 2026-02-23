@@ -12,7 +12,7 @@ const theme = createTheme({
       main: "#f95738",
     },
     secondary: {
-      main: "#65A30D", // lime – citrus vibe, pairs with orange
+      main: "#15803D", // darker lime/green – reads clearly on orange background
     },
     text: {
       primary: "#333333",
