@@ -121,6 +121,16 @@ const Footer = () => {
                   component={NavLink}
                   to={item.link}
                   onClick={() => setMenuOpen(false)}
+                  sx={{
+                    "&:hover": {
+                      color: "secondary.main",
+                      backgroundColor: "transparent",
+                    },
+                    "&.Mui-focusVisible": {
+                      color: "secondary.main",
+                      backgroundColor: "transparent",
+                    },
+                  }}
                 >
                   {item.label}
                 </ListItemButton>
