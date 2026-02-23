@@ -1,11 +1,40 @@
 import { AppBar, Box, Switch } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useAudioStore } from "./stores/audio";
+import {
+  initElementary,
+  stopElementary,
+  renderTapeNoise,
+  isDspRunning,
+} from "./dsp/engine";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
-  const gain = useAudioStore((state) => state.gain);
   const setGain = useAudioStore((state) => state.setGain);
+  const [dspOn, setDspOn] = useState(false);
+
+  useEffect(() => {
+    setDspOn(isDspRunning());
+  }, []);
+
+  const setDistortionAmount = useAudioStore((s) => s.setDistortionAmount);
+
+  const handleSwitch = async (checked: boolean) => {
+    if (checked) {
+      await initElementary();
+      await renderTapeNoise();
+      setDspOn(true);
+      setGain(1);
+      navigate("/");
+    } else {
+      stopElementary();
+      setDspOn(false);
+      setGain(0);
+      setDistortionAmount(0);
+    }
+  };
+
   return (
     <AppBar position="static" color="transparent" elevation={0}>
       <Box display={"flex"}>
@@ -20,10 +49,12 @@ const Header = () => {
           Grantler Instruments
         </Box>
         <Box flex={1} />
-        <Switch
-          checked={gain === 1}
-          onChange={(event) => setGain(event.target.checked ? 1 : 0)}
-        />
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Switch
+            checked={dspOn}
+            onChange={(event) => handleSwitch(event.target.checked)}
+          />
+        </Box>
       </Box>
     </AppBar>
   );

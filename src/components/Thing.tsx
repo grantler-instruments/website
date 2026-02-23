@@ -60,7 +60,7 @@ const Thing = () => {
         </Typography>
         <BackButton />
       </Box>
-      <Box sx={{ flex: 1, minHeight: 0, overflow: "auto", mt: 2 }}>
+      <Box sx={{ flex: 1, minHeight: 0, overflow: "auto", mt: 2, p: 2 }}>
         {id === "esp-now-midi" && <EspNowMidi />}
         {id === "enomik" && <Enomik />}
         {id === "turntangilism" && <Turntangilism />}

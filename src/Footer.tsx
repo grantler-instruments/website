@@ -123,11 +123,11 @@ const Footer = () => {
                   onClick={() => setMenuOpen(false)}
                   sx={{
                     "&:hover": {
-                      color: "secondary.main",
+                      color: "primary.contrastText",
                       backgroundColor: "transparent",
                     },
                     "&.Mui-focusVisible": {
-                      color: "secondary.main",
+                      color: "primary.contrastText",
                       backgroundColor: "transparent",
                     },
                   }}
