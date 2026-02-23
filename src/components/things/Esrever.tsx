@@ -1,11 +1,18 @@
 import { Box, Button } from "@mui/material";
 import ReactPlayer from "react-player";
 import esreverDemo from "../../assets/esrever_demo.mp3";
+import esreverScreenshot from "../../assets/esrever_screenshot.png";
 
 const Esrever = () => {
   return (
     <Box>
       <Box>
+        <Box
+          component="img"
+          src={esreverScreenshot}
+          alt="Esrever plugin interface"
+          sx={{ maxWidth: "100%", height: "auto", display: "block", mb: 2 }}
+        />
         <ReactPlayer src={esreverDemo} controls width="100%" height="54px" />
         <p style={{ marginTop: 16 }}>
           Esrever is an audio plugin that simply reverses the audio signal—
