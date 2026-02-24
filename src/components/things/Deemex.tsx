@@ -1,8 +1,15 @@
 import { Box } from "@mui/material";
+import deemexTop from "../../assets/things/deemex/top.jpg";
 
 const Deemex = () => {
   return (
     <Box>
+      <Box
+        component="img"
+        src={deemexTop}
+        alt="Deemex DMX interface"
+        sx={{ maxWidth: "100%", height: "auto", display: "block", mb: 2 }}
+      />
       <p>
         Deemex is a Teensy-based DMX interface that provides an easy-to-use API
         for controlling DMX lighting systems via MIDI. It enables users to

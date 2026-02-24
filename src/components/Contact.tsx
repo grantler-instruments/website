@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <Page title="Contact">
       <Typography>
-        Feel free to send me an email at thomas at domain.
+        Feel free to send me an email: thomas at domain.
       </Typography>
     </Page>
   );

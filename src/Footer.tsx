@@ -19,7 +19,9 @@ const Footer = () => {
   const listRef = useRef<HTMLUListElement>(null);
 
   const getMenuLinks = useCallback(() => {
-    return Array.from(listRef.current?.querySelectorAll<HTMLAnchorElement>("a[href]") ?? []);
+    return Array.from(
+      listRef.current?.querySelectorAll<HTMLAnchorElement>("a[href]") ?? [],
+    );
   }, []);
 
   useEffect(() => {
@@ -34,7 +36,9 @@ const Footer = () => {
     if (!menuOpen) return;
     const links = getMenuLinks();
     if (links.length === 0) return;
-    const currentIndex = links.indexOf(document.activeElement as HTMLAnchorElement);
+    const currentIndex = links.indexOf(
+      document.activeElement as HTMLAnchorElement,
+    );
     if (e.key === "Escape") {
       e.preventDefault();
       setMenuOpen(false);
@@ -42,7 +46,8 @@ const Footer = () => {
     }
     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
       e.preventDefault();
-      const next = currentIndex < 0 ? 0 : Math.min(currentIndex + 1, links.length - 1);
+      const next =
+        currentIndex < 0 ? 0 : Math.min(currentIndex + 1, links.length - 1);
       links[next].focus();
       return;
     }
@@ -78,7 +83,11 @@ const Footer = () => {
       p={2}
       alignContent={"center"}
       textAlign={menuOpen ? "left" : "center"}
-      sx={{ backgroundColor: menuOpen ? "primary.main" : "transparent" }}
+      sx={{
+        backgroundColor: menuOpen ? "primary.main" : "transparent",
+        cursor: menuOpen ? "default" : undefined,
+        "& button": { cursor: "pointer" },
+      }}
     >
       {menuOpen && (
         <Box
@@ -145,6 +154,7 @@ const Footer = () => {
               [theme.breakpoints.only("xs")]: {
                 alignSelf: "flex-end",
               },
+              cursor: "pointer",
             }}
           >
             <Close />
@@ -153,7 +163,15 @@ const Footer = () => {
       )}
       {!menuOpen && (
         <Box>
-          <IconButton onClick={() => setMenuOpen(!menuOpen)} color="primary" sx={{ "& .MuiSvgIcon-root": { fontSize: 48 } }}>
+          <IconButton
+            onClick={() => setMenuOpen(!menuOpen)}
+            color="primary"
+            sx={{
+              "& .MuiSvgIcon-root": { fontSize: 48 },
+              cursor: "pointer",
+              "&.MuiIconButton-root": { cursor: "pointer" },
+            }}
+          >
             <Apps />
           </IconButton>
         </Box>

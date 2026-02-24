@@ -1,3 +1,4 @@
+import "./App.css";
 import { GlobalStyles as MUIGlobalStyles } from "@mui/material";
 
 const GlobalStyles = () => (
