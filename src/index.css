@@ -5,12 +5,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Use dynamic viewport height on mobile so 100vh works with browser chrome (Brave, Safari, etc.) */
+html {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 @keyframes logo-outline-blink {
