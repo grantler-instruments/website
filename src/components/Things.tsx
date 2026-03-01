@@ -89,7 +89,16 @@ const Things = () => {
 
   return (
     <Page title="Things">
-      <Box component="ul" role="list" sx={{ listStyle: "none", p: 0, m: 0 }}>
+      <Box
+        component="ul"
+        role="list"
+        sx={{
+          listStyle: "none",
+          p: 0,
+          m: 0,
+          width: "100%",
+        }}
+      >
         {things.map(({ name, destination, description }, index) => (
           <Box
             ref={(el) => {
@@ -99,21 +108,41 @@ const Things = () => {
             role="button"
             tabIndex={focusedIndex === index || (focusedIndex === -1 && index === 0) ? 0 : -1}
             display="flex"
-            gap={2}
             key={name}
-            sx={{ cursor: "pointer", outline: "none" }}
+            sx={{
+              cursor: "pointer",
+              outline: "none",
+              width: "100%",
+              minWidth: 0,
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: { xs: "stretch", sm: "baseline" },
+              gap: { xs: 0, sm: 2 },
+            }}
             onClick={() => navigate(destination)}
             onKeyDown={(e) => handleKeyDown(e, index)}
             onFocus={() => setFocusedIndex(index)}
             onMouseEnter={() => setHoveredThing(name)}
             onMouseLeave={() => setHoveredThing(null)}
           >
-            <Typography variant="h2" color={hoveredThing === name || focusedIndex === index ? "primary" : "textSecondary"}>
+            <Typography
+              variant="h2"
+              color={hoveredThing === name || focusedIndex === index ? "primary" : "textSecondary"}
+              sx={{ minWidth: 0, overflowWrap: "break-word" }}
+            >
               {name}
             </Typography>
             <Typography
               variant="body1"
-              sx={{ opacity: hoveredThing === name || focusedIndex === index ? 1 : 0.01 }}
+              sx={{
+                opacity: {
+                  xs: 1,
+                  sm: hoveredThing === name || focusedIndex === index ? 1 : 0.01,
+                },
+                minWidth: 0,
+                overflowWrap: "break-word",
+                fontSize: (theme) => ({ xs: "0.75rem", sm: theme.typography.body1.fontSize }),
+                color: { xs: "text.secondary", sm: "inherit" },
+              }}
             >
               {description}
             </Typography>
