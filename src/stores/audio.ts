@@ -12,12 +12,13 @@ interface AudioState {
   setDistortionAmount: (amount: number) => void;
 }
 
-export const useAudioStore = create<AudioState>((set) => ({
+export const useAudioStore = create<AudioState>((set, get) => ({
   isInitialized: false,
   gain: 0,
   distortionAmount: 0,
   spinning: false,
   init: async () => {
+    if (get().gain <= 0) return;
     if (isDspRunning()) {
       set({ isInitialized: true, gain: 1 });
       return;
