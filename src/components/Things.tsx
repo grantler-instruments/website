@@ -41,6 +41,12 @@ const Things = () => {
         name: "BYODMCSE",
         destination: "/things/byodmcse",
         description: "build your own device multi channel sound experience",
+    },
+    {
+      name: "Grantler Stage Control",
+      destination: "/things/gsc",
+      description:
+        "cross platform, cue based stage control software for theater productions",
     }
   ];
 

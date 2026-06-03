@@ -8,6 +8,7 @@ import BackButton from "./BackButton";
 import EspNowMidi from "./things/EspNowMidi";
 import BYODMCSE from "./things/BYODMCSE";
 import Esrever from "./things/Esrever";
+import GSC from "./things/GSC";
 
 const Thing = () => {
   const { id } = useParams();
@@ -34,6 +35,9 @@ const Thing = () => {
       break;
     case "esrever":
       title = "esrever";
+      break;
+    case "gsc":
+      title = "Grantler Stage Control";
       break;
     default:
       title = "Unknown Thing";
@@ -68,6 +72,7 @@ const Thing = () => {
         {id === "b8c" && <B8C />}
         {id === "byodmcse" && <BYODMCSE />}
         {id === "esrever" && <Esrever />}
+        {id === "gsc" && <GSC />}
       </Box>
     </Box>
   );
