@@ -6,6 +6,8 @@ import {
   stopElementary,
   renderTapeNoise,
   isDspRunning,
+  setDistortionAmount as setEngineDistortion,
+  getAudioContext,
 } from "./dsp/engine";
 import { useEffect, useState } from "react";
 
@@ -24,6 +26,10 @@ const Header = () => {
     if (checked) {
       await initElementary();
       await renderTapeNoise();
+      const ctx = getAudioContext();
+      if (ctx?.state === "suspended") {
+        await ctx.resume();
+      }
       setDspOn(true);
       setGain(1);
       navigate("/");
@@ -32,6 +38,7 @@ const Header = () => {
       setDspOn(false);
       setGain(0);
       setDistortionAmount(0);
+      void setEngineDistortion(0);
     }
   };
 

@@ -69,7 +69,7 @@ export async function setDelayWet(wet: number): Promise<void> {
 export async function setDistortionAmount(amount: number): Promise<void> {
   if (!renderer) return
   const clamped = Math.max(0, Math.min(1, amount))
-  if (clamped === currentDistortionAmount) return
+  if (Math.abs(clamped - currentDistortionAmount) < 0.002) return
   currentDistortionAmount = clamped
   const [left, right] = buildTapeNoiseWithDelay(
     currentDelayWet,
@@ -94,6 +94,11 @@ export async function setReverbWet(wet: number): Promise<void> {
     clamped
   )
   await renderer.render(left, right)
+}
+
+/** Map logo rotation (degrees) to distortion amount (full turn = max). */
+export function distortionFromRotation(rotationDeg: number): number {
+  return Math.min(1, Math.max(0, rotationDeg / 360))
 }
 
 async function renderSilence(): Promise<void> {

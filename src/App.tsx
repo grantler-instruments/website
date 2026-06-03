@@ -9,7 +9,6 @@ import NotFound from "./components/NotFound";
 import Home from "./components/Home";
 import Things from "./components/Things";
 import Contact from "./components/Contact";
-import WIPBanner from "./components/WorkInProgress";
 import Thing from "./components/Thing";
 import About from "./components/About";
 import Events from "./components/Events";
@@ -58,7 +57,6 @@ function App() {
             </Routes>
           </Box>
           <Footer />
-          <WIPBanner />
         </Box>
       </HashRouter>
     </ThemeProvider>
