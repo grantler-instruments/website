@@ -11,6 +11,7 @@ const Footer = () => {
     { label: "/", link: "/" },
     { label: "About", link: "/about" },
     { label: "Things", link: "/things" },
+    { label: "Workshops and talks", link: "/events" },
     { label: "Contact", link: "/contact" },
   ];
   const setMenuOpen = useAppStore((state) => state.setMenuOpen);

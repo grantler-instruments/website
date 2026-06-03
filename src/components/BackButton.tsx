@@ -13,6 +13,10 @@ const BackButton = () => {
       navigate("/things");
       return;
     }
+    if (/^\/events\/[^/]+$/.test(pathname)) {
+      navigate("/events");
+      return;
+    }
     // Things list (or other pages with back): go home
     navigate("/");
   };

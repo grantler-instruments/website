@@ -12,6 +12,8 @@ import Contact from "./components/Contact";
 import WIPBanner from "./components/WorkInProgress";
 import Thing from "./components/Thing";
 import About from "./components/About";
+import Events from "./components/Events";
+import Event from "./components/Event";
 
 function App() {
   return (
@@ -47,6 +49,10 @@ function App() {
                 <Route path=":id" element={<Thing />} />
               </Route>
 
+              <Route path="/events">
+                <Route index element={<Events />} />
+                <Route path=":id" element={<Event />} />
+              </Route>
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
