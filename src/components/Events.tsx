@@ -50,7 +50,7 @@ const Events = () => {
   );
 
   return (
-    <Page title="Workshops and talks">
+    <Page title="Dates">
       <Box
         component="ul"
         role="list"

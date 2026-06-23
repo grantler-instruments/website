@@ -4,7 +4,7 @@ import BackButton from "./BackButton";
 import { eventListTitle, getEventById } from "../data/events";
 import WirelessMidiWorkshop from "./events/WirelessMidiWorkshop";
 import TurntangilismEvent from "./events/TurntangilismEvent";
-import Nime26 from "./events/Nime26";
+import GenericEvent from "./events/GenericEvent";
 
 const Event = () => {
   const { id } = useParams();
@@ -38,7 +38,9 @@ const Event = () => {
       <Box sx={{ flex: 1, minHeight: 0, overflow: "auto", mt: 2, p: 2 }}>
         {id === "wireless-midi-workshop" && <WirelessMidiWorkshop />}
         {id === "turntangilism" && <TurntangilismEvent />}
-        {id === "nime-26" && <Nime26 />}
+        {(id === "nime-26-paper" || id === "nime-26-workshop") && event && (
+          <GenericEvent event={event} />
+        )}
       </Box>
     </Box>
   );

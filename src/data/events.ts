@@ -10,11 +10,22 @@ export type EventItem = {
 
 export const events: EventItem[] = [
   {
-    id: "nime-26",
-    name: "workshop and paper presentation at NIME 26",
-    when: "TBA",
+    id: "nime-26-paper",
+    name: "Paper presentation at NIME\u00A026",
+    when: "26.6.2026",
     where: "NIME 26",
-    tagline: "workshop and paper presentation at NIME 26",
+    tagline:
+      "Turntangilism: Enhancing traditional Turntable Setups with Tangible Controls for Digital Sequencing and Live Sampling",
+    url: "https://nime2026.org/proceedings/215.html",
+  },
+  {
+    id: "nime-26-workshop",
+    name: "Workshop at NIME\u00A026",
+    when: "23.6.2026",
+    where: "NIME 26",
+    tagline:
+      "Zero-Code Rapid Prototyping of Wireless MIDI Devices with ESP-NOW MIDI",
+    url: "https://nime2026.org/proceedings/667.html",
   },
   {
     id: "wireless-midi-workshop",
