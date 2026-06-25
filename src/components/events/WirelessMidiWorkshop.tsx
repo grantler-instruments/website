@@ -13,7 +13,7 @@ const WirelessMidiWorkshop = () => {
       <Typography variant="body1">{event.tagline}</Typography>
       <Typography variant="body1">
         Hands-on workshop on building wireless MIDI controllers for interactive
-        artworks, instruments, and exhibition installations — using the Enomik
+        artworks, instruments, and exhibition installations, using the Enomik
         Toolkit and ESP-NOW MIDI.
       </Typography>
       {event.url && (

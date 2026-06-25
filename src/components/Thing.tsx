@@ -31,7 +31,7 @@ const Thing = () => {
       title = "Deemex";
       break;
     case "byodmcse":
-      title = "BYODMCSE - Bring Your Own Device Multi-Channel Sound Experience";
+      title = "BYODMCSE, Bring Your Own Device Multi-Channel Sound Experience";
       break;
     case "esrever":
       title = "esrever";

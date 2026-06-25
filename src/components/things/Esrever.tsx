@@ -26,10 +26,10 @@ const Esrever = () => {
           <ReactPlayer src={esreverDemo} controls width="100%" height="54px" style={{ colorScheme: "light", accentColor: theme.palette.primary.main }}/>
         </Box>
         <p style={{ marginTop: 16 }}>
-          Esrever is an audio plugin that simply reverses the audio signal—
+          Esrever is an audio plugin that simply reverses the audio signal,
           nothing more, nothing less. It can be synced to the audio clock or run
           in free mode. It is a very quick and dirty plugin, literally. It
-          creates (un)wanted click sounds at the end of the playback window—
+          creates (un)wanted click sounds at the end of the playback window,
           how noticeable they are depends on the window fade settings. The
           playback can be pitched by +/- 3 octaves.
         </p>

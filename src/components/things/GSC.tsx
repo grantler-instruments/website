@@ -22,10 +22,10 @@ const GSC = () => {
         GSC speaks OSC and MIDI, so you can drive external gear, DAWs, media
         servers, and lighting software from the same cue list. A built-in remote
         UI lets crew on the network monitor the show and fire cues from phones or
-        tablets—useful backstage or at FOH without crowding the main machine.
+        tablets, useful backstage or at FOH without crowding the main machine.
       </p>
       <p>
-        Run GSC in the browser or install the desktop app—use whichever fits your
+        Run GSC in the browser or install the desktop app, use whichever fits your
         venue and machine.
       </p>
       <p>Features include:</p>
