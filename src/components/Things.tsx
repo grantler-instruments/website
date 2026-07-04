@@ -47,7 +47,12 @@ const Things = () => {
       destination: "/things/gsc",
       description:
         "cross platform, cue based stage control software for theater productions",
-    }
+    },
+    {
+      name: "Fernbedienung",
+      destination: "/things/fernbedienung",
+      description: "remote control app for bitwig",
+    },
   ];
 
   const [hoveredThing, setHoveredThing] = useState<string | null>(null);

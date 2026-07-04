@@ -9,6 +9,7 @@ import EspNowMidi from "./things/EspNowMidi";
 import BYODMCSE from "./things/BYODMCSE";
 import Esrever from "./things/Esrever";
 import GSC from "./things/GSC";
+import Fernbedienung from "./things/Fernbedienung";
 
 const Thing = () => {
   const { id } = useParams();
@@ -38,6 +39,9 @@ const Thing = () => {
       break;
     case "gsc":
       title = "Grantler Stage Control";
+      break;
+    case "fernbedienung":
+      title = "Fernbedienung";
       break;
     default:
       title = "Unknown Thing";
@@ -73,6 +77,7 @@ const Thing = () => {
         {id === "byodmcse" && <BYODMCSE />}
         {id === "esrever" && <Esrever />}
         {id === "gsc" && <GSC />}
+        {id === "fernbedienung" && <Fernbedienung />}
       </Box>
     </Box>
   );
