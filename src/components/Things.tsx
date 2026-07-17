@@ -53,6 +53,12 @@ const Things = () => {
       destination: "/things/fernbedienung",
       description: "remote control app for bitwig",
     },
+    {
+      name: "WD3000",
+      destination: "/things/wd3000",
+      description:
+        "wire desk for monitoring and composing osc, art-net, tuio, midi, and mqtt",
+    },
   ];
 
   const [hoveredThing, setHoveredThing] = useState<string | null>(null);

@@ -10,6 +10,7 @@ import BYODMCSE from "./things/BYODMCSE";
 import Esrever from "./things/Esrever";
 import GSC from "./things/GSC";
 import Fernbedienung from "./things/Fernbedienung";
+import WD3000 from "./things/WD3000";
 
 const Thing = () => {
   const { id } = useParams();
@@ -42,6 +43,9 @@ const Thing = () => {
       break;
     case "fernbedienung":
       title = "Fernbedienung";
+      break;
+    case "wd3000":
+      title = "WD3000";
       break;
     default:
       title = "Unknown Thing";
@@ -78,6 +82,7 @@ const Thing = () => {
         {id === "esrever" && <Esrever />}
         {id === "gsc" && <GSC />}
         {id === "fernbedienung" && <Fernbedienung />}
+        {id === "wd3000" && <WD3000 />}
       </Box>
     </Box>
   );
