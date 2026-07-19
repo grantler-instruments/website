@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
   Box,
+  Button,
   IconButton,
   List,
   ListItem,
@@ -128,6 +129,17 @@ const WD3000 = () => {
         </ListItem>
         <ListItem>Project import/export for sharing layouts and configs</ListItem>
       </List>
+      <Box display={"flex"} justifyContent="flex-end" my={2}>
+        <Button
+          variant="contained"
+          color="primary"
+          href="https://grantler-instruments.github.io/wd3000/"
+          target="_blank"
+          rel="noopener"
+        >
+          Learn More
+        </Button>
+      </Box>
     </Box>
   );
 };
