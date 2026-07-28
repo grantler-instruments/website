@@ -11,6 +11,8 @@ import Esrever from "./things/Esrever";
 import GSC from "./things/GSC";
 import Fernbedienung from "./things/Fernbedienung";
 import WD3000 from "./things/WD3000";
+import Spielerei from "./things/Spielerei";
+import ScrollPane from "./ScrollPane";
 
 const Thing = () => {
   const { id } = useParams();
@@ -47,6 +49,9 @@ const Thing = () => {
     case "wd3000":
       title = "WD3000";
       break;
+    case "spielerei":
+      title = "Spielerei";
+      break;
     default:
       title = "Unknown Thing";
   }
@@ -55,7 +60,7 @@ const Thing = () => {
     <Box
       display="flex"
       flexDirection={"column"}
-      maxHeight={"75dvh"}
+      height={"75dvh"}
       width={"100%"}
       minWidth={0}
       p={2}
@@ -72,18 +77,21 @@ const Thing = () => {
         </Typography>
         <BackButton />
       </Box>
-      <Box sx={{ flex: 1, minHeight: 0, overflow: "auto", mt: 2, p: 2 }}>
-        {id === "esp-now-midi" && <EspNowMidi />}
-        {id === "enomik" && <Enomik />}
-        {id === "turntangilism" && <Turntangilism />}
-        {id === "deemex" && <Deemex />}
-        {id === "b8c" && <B8C />}
-        {id === "byodmcse" && <BYODMCSE />}
-        {id === "esrever" && <Esrever />}
-        {id === "gsc" && <GSC />}
-        {id === "fernbedienung" && <Fernbedienung />}
-        {id === "wd3000" && <WD3000 />}
-      </Box>
+      <ScrollPane sx={{ mt: 2 }}>
+        <Box p={2}>
+          {id === "esp-now-midi" && <EspNowMidi />}
+          {id === "enomik" && <Enomik />}
+          {id === "turntangilism" && <Turntangilism />}
+          {id === "deemex" && <Deemex />}
+          {id === "b8c" && <B8C />}
+          {id === "byodmcse" && <BYODMCSE />}
+          {id === "esrever" && <Esrever />}
+          {id === "gsc" && <GSC />}
+          {id === "fernbedienung" && <Fernbedienung />}
+          {id === "wd3000" && <WD3000 />}
+          {id === "spielerei" && <Spielerei />}
+        </Box>
+      </ScrollPane>
     </Box>
   );
 };

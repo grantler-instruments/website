@@ -5,6 +5,7 @@ import { eventListTitle, getEventById } from "../data/events";
 import WirelessMidiWorkshop from "./events/WirelessMidiWorkshop";
 import TurntangilismEvent from "./events/TurntangilismEvent";
 import GenericEvent from "./events/GenericEvent";
+import ScrollPane from "./ScrollPane";
 
 const Event = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const Event = () => {
     <Box
       display="flex"
       flexDirection="column"
-      maxHeight="75dvh"
+      height="75dvh"
       width="100%"
       minWidth={0}
       p={2}
@@ -35,13 +36,15 @@ const Event = () => {
         </Typography>
         <BackButton />
       </Box>
-      <Box sx={{ flex: 1, minHeight: 0, overflow: "auto", mt: 2, p: 2 }}>
-        {id === "wireless-midi-workshop" && <WirelessMidiWorkshop />}
-        {id === "turntangilism" && <TurntangilismEvent />}
-        {(id === "nime-26-paper" || id === "nime-26-workshop") && event && (
-          <GenericEvent event={event} />
-        )}
-      </Box>
+      <ScrollPane sx={{ mt: 2 }}>
+        <Box p={2}>
+          {id === "wireless-midi-workshop" && <WirelessMidiWorkshop />}
+          {id === "turntangilism" && <TurntangilismEvent />}
+          {(id === "nime-26-paper" || id === "nime-26-workshop") && event && (
+            <GenericEvent event={event} />
+          )}
+        </Box>
+      </ScrollPane>
     </Box>
   );
 };

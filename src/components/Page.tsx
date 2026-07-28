@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import BackButton from "./BackButton";
+import ScrollPane from "./ScrollPane";
 
 const Page = ({
   children,
@@ -14,7 +15,7 @@ const Page = ({
     <Box
       display="flex"
       flexDirection="column"
-      maxHeight="75dvh"
+      height="75dvh"
       width="100%"
       maxWidth="100%"
       minWidth={0}
@@ -32,10 +33,10 @@ const Page = ({
         </Typography>
         <BackButton />
       </Box>
-      <Box sx={{ flex: 1, minHeight: 0, overflow: "auto", mt: 2 }}>
+      <ScrollPane sx={{ mt: 2 }}>
         {children}
         {actions && <Box>{actions}</Box>}
-      </Box>
+      </ScrollPane>
     </Box>
   );
 };

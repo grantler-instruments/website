@@ -59,6 +59,12 @@ const Things = () => {
       description:
         "wire desk for monitoring and composing osc, art-net, tuio, midi, and mqtt",
     },
+    {
+      name: "Spielerei",
+      destination: "/things/spielerei",
+      description:
+        "c++ creative coding toolkit for interactive exhibits",
+    },
   ];
 
   const [hoveredThing, setHoveredThing] = useState<string | null>(null);
