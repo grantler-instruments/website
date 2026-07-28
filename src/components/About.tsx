@@ -17,6 +17,15 @@ const About = () => {
           exploratory. Grantler Instruments is an evolving practice, with no
           fixed scale or format.
         </Typography>
+        <Typography variant="body1" component="p" sx={{ mt: 5 }}>
+          Feel free to get in touch if you are interested in custom hardware,
+          custom software, design support, installation help, or simply want
+          to say hello.
+        </Typography>
+        <Typography variant="body1" component="p">
+          I also welcome commissions and am available for workshops and talks
+          on instrument building, musical interfaces, and creative technology.
+        </Typography>
         <Box
           component="img"
           src={thomasImage}
