@@ -1,12 +1,17 @@
 import { useRef, useEffect, useCallback } from "react";
 import { Box, IconButton, List, ListItemButton, useTheme } from "@mui/material";
 import Apps from "@mui/icons-material/Apps";
+import { SkipNext, SkipPrevious } from "@mui/icons-material";
 import { useAppStore } from "./stores/app";
 import { Close } from "@mui/icons-material";
-import { NavLink } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
+import { things } from "./components/Things";
+import { events } from "./data/events";
 
 const Footer = () => {
   const theme = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
   const menuItems = [
     { label: "/", link: "/" },
     { label: "About", link: "/about" },
@@ -18,6 +23,26 @@ const Footer = () => {
   const menuOpen = useAppStore((state) => state.menuOpen);
   const menuRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const currentThingIndex = things.findIndex(
+    (thing) => thing.destination === location.pathname,
+  );
+  const currentEventIndex = events.findIndex(
+    (event) => `/events/${event.id}` === location.pathname,
+  );
+  const isThingPage = currentThingIndex >= 0;
+  const isEventPage = currentEventIndex >= 0;
+  const isDetailPage = isThingPage || isEventPage;
+  const currentItemIndex = isThingPage ? currentThingIndex : currentEventIndex;
+  const itemCount = isThingPage ? things.length : events.length;
+  const itemLabel = isThingPage ? "thing" : "date";
+
+  const navigateDetail = (index: number) => {
+    navigate(
+      isThingPage
+        ? things[index].destination
+        : `/events/${events[index].id}`,
+    );
+  };
 
   const getMenuLinks = useCallback(() => {
     return Array.from(
@@ -163,7 +188,20 @@ const Footer = () => {
         </Box>
       )}
       {!menuOpen && (
-        <Box>
+        <Box display="flex" justifyContent="center" alignItems="center">
+          {isDetailPage && (
+            <>
+              <IconButton
+                aria-label={`Previous ${itemLabel}`}
+                disabled={currentItemIndex === 0}
+                onClick={() => navigateDetail(currentItemIndex - 1)}
+                color="primary"
+                sx={{ "& .MuiSvgIcon-root": { fontSize: 48 }, cursor: "pointer" }}
+              >
+                <SkipPrevious />
+              </IconButton>
+            </>
+          )}
           <IconButton
             onClick={() => setMenuOpen(!menuOpen)}
             color="primary"
@@ -175,6 +213,17 @@ const Footer = () => {
           >
             <Apps />
           </IconButton>
+          {isDetailPage && (
+            <IconButton
+              aria-label={`Next ${itemLabel}`}
+              disabled={currentItemIndex === itemCount - 1}
+              onClick={() => navigateDetail(currentItemIndex + 1)}
+              color="primary"
+              sx={{ "& .MuiSvgIcon-root": { fontSize: 48 }, cursor: "pointer" }}
+            >
+              <SkipNext />
+            </IconButton>
+          )}
         </Box>
       )}
     </Box>

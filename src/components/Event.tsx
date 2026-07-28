@@ -30,7 +30,12 @@ const Event = () => {
       >
         <Typography
           variant="h2"
-          sx={{ minWidth: 0, flex: 1, overflowWrap: "break-word" }}
+          sx={{
+            display: { xs: "none", sm: "block" },
+            minWidth: 0,
+            flex: 1,
+            overflowWrap: "break-word",
+          }}
         >
           {title}
         </Typography>

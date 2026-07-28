@@ -28,7 +28,16 @@ const Page = ({
         alignItems="flex-start"
         flexShrink={0}
       >
-        <Typography variant="h1" color="primary" sx={{ minWidth: 0, flex: 1, overflowWrap: "break-word" }}>
+        <Typography
+          variant="h1"
+          color="primary"
+          sx={{
+            display: { xs: "none", sm: "block" },
+            minWidth: 0,
+            flex: 1,
+            overflowWrap: "break-word",
+          }}
+        >
           {title}
         </Typography>
         <BackButton />

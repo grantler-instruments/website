@@ -72,7 +72,15 @@ const Thing = () => {
         alignItems="flex-start"
         flexShrink={0}
       >
-        <Typography variant="h2" sx={{ minWidth: 0, flex: 1, overflowWrap: "break-word" }}>
+        <Typography
+          variant="h2"
+          sx={{
+            display: { xs: "none", sm: "block" },
+            minWidth: 0,
+            flex: 1,
+            overflowWrap: "break-word",
+          }}
+        >
           {title}
         </Typography>
         <BackButton />

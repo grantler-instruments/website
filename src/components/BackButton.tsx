@@ -22,7 +22,13 @@ const BackButton = () => {
   };
 
   return (
-    <Box position={"relative"} flexShrink={0} width={48} height={48}>
+    <Box
+      position={"relative"}
+      flexShrink={0}
+      width={48}
+      height={48}
+      sx={{ display: { xs: "none", sm: "block" } }}
+    >
       <IconButton onClick={handleClose} sx={{ position: "absolute", right: 0, top: -8 }}>
         <Close sx={{ fontSize: "32px" }} />
       </IconButton>
