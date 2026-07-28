@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import Page from "./Page";
 import thomasImage from "../assets/thomas.jpeg";
 
@@ -26,6 +26,17 @@ const About = () => {
           I also welcome commissions and am available for workshops and talks
           on instrument building, musical interfaces, and creative technology.
         </Typography>
+        <Box>
+          <Button
+            component="a"
+            href="https://cal.com/thomasgeissl/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="contained"
+          >
+            Book a meeting
+          </Button>
+        </Box>
         <Box
           component="img"
           src={thomasImage}
