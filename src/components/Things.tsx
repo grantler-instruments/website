@@ -10,6 +10,9 @@ import wd3000Thumbnail from "../assets/things/wd3000/screenshot_overview.png";
 import spielereiThumbnail from "../assets/things/spielerei/render.png";
 import b8cThumbnail from "../assets/things/b8c/DSCF6341.jpg";
 import esreverThumbnail from "../assets/esrever_screenshot.png";
+import byodmcseThumbnail from "../assets/things/byodmcse/screenshot.png";
+import turntangilismThumbnail from "../assets/things/turntangilism/overview_resized.png";
+import espNowMidiThumbnail from "../assets/things/esp-now-midi/topology.svg";
 
 type Thing = {
   name: string;
@@ -29,6 +32,8 @@ export const things: Thing[] = [
     name: "ESP-NOW MIDI",
     destination: "/things/esp-now-midi",
     description: "wireless midi over esp-now protocol",
+    thumbnail: espNowMidiThumbnail,
+    thumbnailAlt: "Two MIDI hosts connected over ESP-NOW to four ESP32-S2 Mini boards",
   },
   {
     name: "Enomik 3000",
@@ -41,6 +46,8 @@ export const things: Thing[] = [
     name: "Turntangilism 3000",
     destination: "/things/turntangilism",
     description: "postdigital extension kit for traditional turntable setups",
+    thumbnail: turntangilismThumbnail,
+    thumbnailAlt: "Turntangilism 3000 overview",
   },
   {
     name: "Baby 8 Cubes",
@@ -67,6 +74,8 @@ export const things: Thing[] = [
     name: "BYODMCSE",
     destination: "/things/byodmcse",
     description: "build your own device multi channel sound experience",
+    thumbnail: byodmcseThumbnail,
+    thumbnailAlt: "BYODMCSE, Midge, and Ableton Live running together",
   },
   {
     name: "Grantler Stage Control",
@@ -107,9 +116,9 @@ const Things = () => {
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const [previewPosition, setPreviewPosition] = useState<PreviewPosition | null>(null);
   const itemRefs = useRef<(HTMLElement | null)[]>([]);
-  const selectedThing =
-    things.find((thing) => thing.name === hoveredThing) ??
-    things[focusedIndex >= 0 ? focusedIndex : 0];
+  const selectedThing = hoveredThing
+    ? things.find((thing) => thing.name === hoveredThing)
+    : undefined;
 
   const goTo = useCallback(
     (index: number) => {
@@ -236,7 +245,7 @@ const Things = () => {
             );
           })}
         </Box>
-        {selectedThing.thumbnail && (
+        {selectedThing?.thumbnail && (
           <Box
             sx={{
               pointerEvents: "none",
@@ -260,7 +269,7 @@ const Things = () => {
                 maxHeight: previewPosition?.maxHeight ?? "55dvh",
                 objectFit: "contain",
                 objectPosition: "center top",
-                opacity: 0.9,
+                opacity: 1,
               }}
             />
           </Box>

@@ -1,8 +1,15 @@
 import { Box, Button } from "@mui/material";
+import espNowMidiTopology from "../../assets/things/esp-now-midi/topology.svg";
 
 const EspNowMidi = () => {
   return (
     <Box>
+      <Box
+        component="img"
+        src={espNowMidiTopology}
+        alt="A MIDI host connected to an ESP-NOW MIDI dongle and ten wireless clients"
+        sx={{ maxWidth: "100%", height: "auto", display: "block", mb: 2 }}
+      />
       <p>
         ESP-NOW MIDI is a wireless MIDI protocol built on Espressif’s ESP-NOW
         technology, specifically designed to enable reliable, low-latency
