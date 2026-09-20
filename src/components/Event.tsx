@@ -1,11 +1,18 @@
 import { Box, Typography } from "@mui/material";
 import { useParams } from "react-router";
+import type { MetaFunction } from "react-router";
 import BackButton from "./BackButton";
 import { eventListTitle, getEventById } from "../data/events";
 import WirelessMidiWorkshop from "./events/WirelessMidiWorkshop";
 import TurntangilismEvent from "./events/TurntangilismEvent";
 import GenericEvent from "./events/GenericEvent";
 import ScrollPane from "./ScrollPane";
+
+export const meta: MetaFunction = ({ params }) => {
+  const event = params.id ? getEventById(params.id) : undefined;
+  const title = event ? eventListTitle(event) : "Unknown Event";
+  return [{ title: `${title} · Grantler Instruments` }];
+};
 
 const Event = () => {
   const { id } = useParams();

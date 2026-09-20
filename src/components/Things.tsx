@@ -1,114 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
+import type { MetaFunction } from "react-router";
 import Page from "./Page";
 import { useState, useRef, useCallback } from "react";
-import deemexThumbnail from "../assets/things/deemex/top.jpg";
-import enomikThumbnail from "../assets/things/enomik/enomik_dongle_client.jpg";
-import fernbedienungThumbnail from "../assets/things/fernbedienung/screenshot.png";
-import gscThumbnail from "../assets/things/gsc/gsc_edit_screenshot.png";
-import wd3000Thumbnail from "../assets/things/wd3000/screenshot_overview.png";
-import spielereiThumbnail from "../assets/things/spielerei/render.png";
-import b8cThumbnail from "../assets/things/b8c/DSCF6341.jpg";
-import esreverThumbnail from "../assets/esrever_screenshot.png";
-import byodmcseThumbnail from "../assets/things/byodmcse/screenshot.png";
-import turntangilismThumbnail from "../assets/things/turntangilism/overview_resized.png";
-import espNowMidiThumbnail from "../assets/things/esp-now-midi/topology.svg";
-
-type Thing = {
-  name: string;
-  destination: string;
-  description: string;
-  thumbnail?: string;
-  thumbnailAlt?: string;
-};
+import { things } from "../data/things";
 
 type PreviewPosition = {
   top: number;
   maxHeight: number;
 };
 
-export const things: Thing[] = [
-  {
-    name: "ESP-NOW MIDI",
-    destination: "/things/esp-now-midi",
-    description: "wireless midi over esp-now protocol",
-    thumbnail: espNowMidiThumbnail,
-    thumbnailAlt: "Two MIDI hosts connected over ESP-NOW to four ESP32-S2 Mini boards",
-  },
-  {
-    name: "Enomik 3000",
-    destination: "/things/enomik",
-    description: "no-code toolkit for creating midi devices",
-    thumbnail: enomikThumbnail,
-    thumbnailAlt: "Enomik 3000 MIDI dongle",
-  },
-  {
-    name: "Turntangilism 3000",
-    destination: "/things/turntangilism",
-    description: "postdigital extension kit for traditional turntable setups",
-    thumbnail: turntangilismThumbnail,
-    thumbnailAlt: "Turntangilism 3000 overview",
-  },
-  {
-    name: "Baby 8 Cubes",
-    destination: "/things/b8c",
-    description: "tangible step sequencer for kids, grandmas and everyone else",
-    thumbnail: b8cThumbnail,
-    thumbnailAlt: "Baby 8 Cubes in performance",
-  },
-  {
-    name: "Deemex",
-    destination: "/things/deemex",
-    description: "dmx interface with midi to dmx and enttec emulation mode",
-    thumbnail: deemexThumbnail,
-    thumbnailAlt: "Deemex interface",
-  },
-  {
-    name: "esrever",
-    destination: "/things/esrever",
-    description: "audio plugin that simply reverses the audio signal",
-    thumbnail: esreverThumbnail,
-    thumbnailAlt: "Esrever plugin interface",
-  },
-  {
-    name: "BYODMCSE",
-    destination: "/things/byodmcse",
-    description: "build your own device multi channel sound experience",
-    thumbnail: byodmcseThumbnail,
-    thumbnailAlt: "BYODMCSE, Midge, and Ableton Live running together",
-  },
-  {
-    name: "Grantler Stage Control",
-    destination: "/things/gsc",
-    description:
-      "cross platform, cue based stage control software for theater productions",
-    thumbnail: gscThumbnail,
-    thumbnailAlt: "Grantler Stage Control cue editor",
-  },
-  {
-    name: "Fernbedienung",
-    destination: "/things/fernbedienung",
-    description: "remote control app for bitwig",
-    thumbnail: fernbedienungThumbnail,
-    thumbnailAlt: "Fernbedienung remote-control app",
-  },
-  {
-    name: "WD3000",
-    destination: "/things/wd3000",
-    description:
-      "wire desk for monitoring and composing osc, art-net, tuio, midi, and mqtt",
-    thumbnail: wd3000Thumbnail,
-    thumbnailAlt: "WD3000 overview",
-  },
-  {
-    name: "Spielerei",
-    destination: "/things/spielerei",
-    description:
-      "c++ creative coding toolkit for interactive exhibits",
-    thumbnail: spielereiThumbnail,
-    thumbnailAlt: "Spielerei WebGPU render output",
-  },
-];
+export const meta: MetaFunction = () => [{ title: "Things · Grantler Instruments" }];
 
 const Things = () => {
   const navigate = useNavigate();

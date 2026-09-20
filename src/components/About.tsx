@@ -1,6 +1,9 @@
 import { Box, Button, Typography } from "@mui/material";
+import type { MetaFunction } from "react-router";
 import Page from "./Page";
 import thomasImage from "../assets/thomas.jpeg";
+
+export const meta: MetaFunction = () => [{ title: "About · Grantler Instruments" }];
 
 const About = () => {
   return (

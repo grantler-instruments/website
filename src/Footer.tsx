@@ -5,7 +5,7 @@ import { SkipNext, SkipPrevious } from "@mui/icons-material";
 import { useAppStore } from "./stores/app";
 import { Close } from "@mui/icons-material";
 import { NavLink, useLocation, useNavigate } from "react-router";
-import { things } from "./components/Things";
+import { things } from "./data/things";
 import { events } from "./data/events";
 
 const Footer = () => {

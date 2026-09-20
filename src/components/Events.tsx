@@ -1,8 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
+import type { MetaFunction } from "react-router";
 import Page from "./Page";
 import { useState, useRef, useCallback } from "react";
 import { eventListTitle, events } from "../data/events";
+
+export const meta: MetaFunction = () => [{ title: "Dates · Grantler Instruments" }];
 
 const Events = () => {
   const navigate = useNavigate();

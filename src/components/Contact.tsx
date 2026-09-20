@@ -1,5 +1,8 @@
 import { Button, Typography } from "@mui/material";
+import type { MetaFunction } from "react-router";
 import Page from "./Page";
+
+export const meta: MetaFunction = () => [{ title: "Contact · Grantler Instruments" }];
 
 const Contact = () => {
   return (

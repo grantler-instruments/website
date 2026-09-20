@@ -1,60 +1,20 @@
 import { Box, Typography } from "@mui/material";
 import { useParams } from "react-router";
-import B8C from "./things/B8C";
-import Enomik from "./things/Enomik";
-import Turntangilism from "./things/Turntangilism";
-import Deemex from "./things/Deemex";
+import type { MetaFunction } from "react-router";
 import BackButton from "./BackButton";
-import EspNowMidi from "./things/EspNowMidi";
-import BYODMCSE from "./things/BYODMCSE";
-import Esrever from "./things/Esrever";
-import GSC from "./things/GSC";
-import Fernbedienung from "./things/Fernbedienung";
-import WD3000 from "./things/WD3000";
-import Spielerei from "./things/Spielerei";
 import ScrollPane from "./ScrollPane";
+import { getThingBySlug } from "../data/things";
+
+export const meta: MetaFunction = ({ params }) => {
+  const thing = getThingBySlug(params.id);
+  return [{ title: `${thing?.title ?? "Unknown Thing"} · Grantler Instruments` }];
+};
 
 const Thing = () => {
   const { id } = useParams();
-  let title;
-
-  switch (id) {
-    case "esp-now-midi":
-      title = "ESP-NOW MIDI";
-      break;
-    case "enomik":
-      title = "Enomik 3000";
-      break;
-    case "turntangilism":
-      title = "Turntangilism 3000";
-      break;
-    case "b8c":
-      title = "Baby 8 Cubes";
-      break;
-    case "deemex":
-      title = "Deemex";
-      break;
-    case "byodmcse":
-      title = "BYODMCSE, Bring Your Own Device Multi-Channel Sound Experience";
-      break;
-    case "esrever":
-      title = "esrever";
-      break;
-    case "gsc":
-      title = "Grantler Stage Control";
-      break;
-    case "fernbedienung":
-      title = "Fernbedienung";
-      break;
-    case "wd3000":
-      title = "WD3000";
-      break;
-    case "spielerei":
-      title = "Spielerei";
-      break;
-    default:
-      title = "Unknown Thing";
-  }
+  const thing = getThingBySlug(id);
+  const title = thing?.title ?? "Unknown Thing";
+  const Component = thing?.Component;
 
   return (
     <Box
@@ -86,19 +46,7 @@ const Thing = () => {
         <BackButton />
       </Box>
       <ScrollPane sx={{ mt: 2 }}>
-        <Box p={2}>
-          {id === "esp-now-midi" && <EspNowMidi />}
-          {id === "enomik" && <Enomik />}
-          {id === "turntangilism" && <Turntangilism />}
-          {id === "deemex" && <Deemex />}
-          {id === "b8c" && <B8C />}
-          {id === "byodmcse" && <BYODMCSE />}
-          {id === "esrever" && <Esrever />}
-          {id === "gsc" && <GSC />}
-          {id === "fernbedienung" && <Fernbedienung />}
-          {id === "wd3000" && <WD3000 />}
-          {id === "spielerei" && <Spielerei />}
-        </Box>
+        <Box p={2}>{Component && <Component />}</Box>
       </ScrollPane>
     </Box>
   );
