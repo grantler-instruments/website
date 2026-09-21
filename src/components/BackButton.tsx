@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router";
 const BackButton = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const pathname = location.pathname.replace(/^#/, "") || "/";
+  const pathname = location.pathname.replace(/^#/, "").replace(/(.)\/$/, "$1") || "/";
 
   const handleClose = () => {
     // Thing detail: /things/:id -> go to things list

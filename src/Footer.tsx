@@ -11,6 +11,7 @@ import { events } from "./data/events";
 const Footer = () => {
   const theme = useTheme();
   const location = useLocation();
+  const pathname = location.pathname.replace(/(.)\/$/, "$1");
   const navigate = useNavigate();
   const menuItems = [
     { label: "/", link: "/" },
@@ -24,10 +25,10 @@ const Footer = () => {
   const menuRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const currentThingIndex = things.findIndex(
-    (thing) => thing.destination === location.pathname,
+    (thing) => thing.destination === pathname,
   );
   const currentEventIndex = events.findIndex(
-    (event) => `/events/${event.id}` === location.pathname,
+    (event) => `/events/${event.id}` === pathname,
   );
   const isThingPage = currentThingIndex >= 0;
   const isEventPage = currentEventIndex >= 0;

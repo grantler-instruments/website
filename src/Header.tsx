@@ -48,9 +48,10 @@ function getMobileTitle(pathname: string) {
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const mobileTitle = getMobileTitle(location.pathname);
+  const pathname = location.pathname.replace(/(.)\/$/, "$1");
+  const mobileTitle = getMobileTitle(pathname);
   const isClosable = /^(\/things(\/[^/]+)?|\/events(\/[^/]+)?|\/about|\/contact)$/.test(
-    location.pathname
+    pathname
   );
   const setGain = useAudioStore((state) => state.setGain);
   const [dspOn, setDspOn] = useState(false);
@@ -82,11 +83,11 @@ const Header = () => {
   };
 
   const handleClose = () => {
-    if (/^\/things\/[^/]+$/.test(location.pathname)) {
+    if (/^\/things\/[^/]+$/.test(pathname)) {
       navigate("/things");
       return;
     }
-    if (/^\/events\/[^/]+$/.test(location.pathname)) {
+    if (/^\/events\/[^/]+$/.test(pathname)) {
       navigate("/events");
       return;
     }
@@ -103,7 +104,7 @@ const Header = () => {
           onClick={() => navigate("/")}
           sx={{
             cursor: "pointer",
-            display: { xs: location.pathname === "/" ? "block" : "none", sm: "block" },
+            display: { xs: pathname === "/" ? "block" : "none", sm: "block" },
           }}
           color={"primary.main"}
         >
@@ -115,7 +116,7 @@ const Header = () => {
           alt="Grantler Instruments"
           onClick={() => navigate("/")}
           sx={{
-            display: { xs: location.pathname === "/" ? "none" : "block", sm: "none" },
+            display: { xs: pathname === "/" ? "none" : "block", sm: "none" },
             height: 32,
             width: "auto",
             m: 1,
@@ -139,7 +140,7 @@ const Header = () => {
           </Typography>
         )}
         <Box flex={1} />
-        {location.pathname === "/" && (
+        {pathname === "/" && (
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Switch
               checked={dspOn}
